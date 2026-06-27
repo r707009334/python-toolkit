@@ -1,312 +1,110 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python 自动化工具包 — 12 个即用脚本，告别重复劳动</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; }
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        .hero h1 { font-size: 2.5em; margin-bottom: 20px; }
-        .hero p { font-size: 1.2em; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
-        .hero .price {
-            font-size: 2em;
-            font-weight: bold;
-            background: rgba(255,255,255,0.2);
-            display: inline-block;
-            padding: 10px 30px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-        }
-        .hero .btn {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-        .hero .btn:hover { transform: scale(1.05); }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        .section-title {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 40px;
-            color: #333;
-        }
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-        .tool-card {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 25px;
-            transition: box-shadow 0.2s;
-        }
-        .tool-card:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .tool-card .icon { font-size: 2em; margin-bottom: 10px; }
-        .tool-card h3 { font-size: 1.2em; margin-bottom: 10px; color: #333; }
-        .tool-card p { color: #666; font-size: 0.95em; }
-        .features {
-            background: #f8f9fa;
-            padding: 60px 20px;
-        }
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        .feature-item .check {
-            color: #667eea;
-            font-size: 1.5em;
-            flex-shrink: 0;
-        }
-        .feature-item h4 { margin-bottom: 5px; }
-        .feature-item p { color: #666; font-size: 0.9em; }
-        .code-demo {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 40px 20px;
-        }
-        .code-demo pre {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #2d2d2d;
-            padding: 25px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-family: "Fira Code", "Consolas", monospace;
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
-        .code-demo .comment { color: #6a9955; }
-        .code-demo .command { color: #dcdcaa; }
-        .code-demo .flag { color: #9cdcfe; }
-        .code-demo .string { color: #ce9178; }
-        .testimonial {
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .testimonial blockquote {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.2em;
-            font-style: italic;
-            color: #555;
-            border-left: 4px solid #667eea;
-            padding-left: 20px;
-        }
-        .cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .cta h2 { font-size: 2em; margin-bottom: 20px; }
-        .cta .btn {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        .faq { padding: 60px 20px; }
-        .faq-item { max-width: 700px; margin: 0 auto 20px; }
-        .faq-item h4 { margin-bottom: 5px; color: #333; }
-        .faq-item p { color: #666; }
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #999;
-            font-size: 0.9em;
-        }
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.8em; }
-            .hero .price { font-size: 1.5em; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Python 鑷姩鍖栧伐鍏峰寘</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#2d3436;background:#fff}
+.hero{background:linear-gradient(135deg,#0984e3,#6c5ce7);color:#fff;text-align:center;padding:80px 20px 60px}
+.hero h1{font-size:2.4em;margin-bottom:16px;font-weight:700;letter-spacing:1px}
+.hero p{font-size:1.15em;opacity:.92;max-width:560px;margin:0 auto 28px;line-height:1.7}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.2);padding:6px 22px;border-radius:20px;font-size:.95em;margin-bottom:20px}
+.hero a{display:inline-block;background:#fff;color:#0984e3;padding:14px 40px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1.1em;transition:.2s}
+.hero a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.sec{text-align:center;font-size:1.8em;font-weight:700;margin:55px 0 35px;color:#2d3436}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:55px}
+.card{background:#f8f9fa;border-radius:12px;padding:26px;transition:.2s;border:1px solid #eee}
+.card:hover{box-shadow:0 8px 30px rgba(0,0,0,.08);transform:translateY(-2px)}
+.card .num{display:inline-block;background:#0984e3;color:#fff;width:32px;height:32px;border-radius:50%;text-align:center;line-height:32px;font-size:.85em;font-weight:700;margin-bottom:12px}
+.card h3{font-size:1.05em;margin-bottom:8px;color:#2d3436}
+.card p{font-size:.88em;color:#636e72;line-height:1.6}
+.code{background:#2d3436;border-radius:12px;padding:32px 28px;margin-bottom:55px;overflow-x:auto}
+.code pre{color:#dfe6e9;font-family:"Consolas","Fira Code",monospace;font-size:.88em;line-height:1.7}
+.code .g{color:#00b894}.code .b{color:#74b9ff}.code .y{color:#ffeaa7}
+.btn-row{text-align:center;margin:50px 0}
+.btn-row a{display:inline-block;background:#0984e3;color:#fff;padding:16px 48px;border-radius:30px;text-decoration:none;font-size:1.15em;font-weight:700;transition:.2s}
+.btn-row a:hover{background:#0770c2;transform:translateY(-2px)}
+.why{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;margin-bottom:55px}
+.why div{display:flex;gap:12px;align-items:flex-start}
+.why .ck{color:#00b894;font-size:1.3em;flex-shrink:0;line-height:1.6}
+.why h4{margin-bottom:4px;font-size:.95em}
+.why p{font-size:.85em;color:#636e72}
+.faq{max-width:700px;margin:0 auto 55px}
+.faq dt{font-weight:700;margin-bottom:6px;font-size:.95em;cursor:pointer}
+.faq dd{color:#636e72;font-size:.9em;margin-bottom:20px;line-height:1.6}
+footer{text-align:center;padding:30px;color:#b2bec3;font-size:.85em;border-top:1px solid #eee}
+</style>
 </head>
 <body>
 
 <div class="hero">
-    <h1>🛠️ Python 自动化工具包</h1>
-    <p>12 个即用型 Python 脚本，覆盖 PDF 处理、网页抓取、文件整理、Excel 处理、图片批处理等常见场景</p>
-    <div class="price">¥29.9</div>
-    <br>
-    <a href="#buy" class="btn">立即获取 →</a>
+  <h1>Python 鑷姩鍖栧伐鍏峰寘</h1>
+  <p>12 涓嵆鐢ㄨ剼鏈紝瑕嗙洊 PDF 澶勭悊銆佺綉椤垫姄鍙栥€佹枃浠舵暣鐞嗐€丒xcel 澶勭悊銆佸浘鐗囨壒澶勭悊銆傞浂鍩虹鍙敤銆?/p>
+  <div class="tag">MIT 寮€婧?路 姘镐箙浣跨敤 路 涓枃鏂囨。</div><br>
+  <a href="landing.html">19.9 鍏?鑾峰彇瀹屾暣鐗?/a>
 </div>
 
-<div class="container">
-    <h2 class="section-title">📦 包含 12 个工具</h2>
-    <div class="tools-grid">
-        <div class="tool-card">
-            <div class="icon">📄</div>
-            <h3>PDF 处理器</h3>
-            <p>合并多个 PDF、按页拆分、提取指定页面、批量加水印、PDF 转图片。告别手动操作。</p>
-        </div>
-        <div class="tool-card">
-            <div class="icon">🌐</div>
-            <h3>网页数据抓取</h3>
-            <p>一键抓取网页表格、文章内容、所有链接。支持中文网站，自动处理编码。</p>
-        </div>
-        <div class="tool-card">
-            <div class="icon">📝</div>
-            <h3>批量文件重命名</h3>
-            <p>按序号、日期、自定义规则批量重命名。支持前缀、后缀、变量替换。</p>
-        </div>
-        <div class="tool-card">
-            <div class="icon">📁</div>
-            <h3>文件夹自动整理</h3>
-            <p>按文件类型或修改日期自动分类。下载文件夹一键整理干净。</p>
-        </div>
-        <div class="tool-card">
-            <div class="icon">📊</div>
-            <h3>Excel 处理器</h3>
-            <p>合并多个 Excel、格式转换、数据筛选、去重、统计分析。</p>
-        </div>
-        <div class="tool-card">
-            <div class="icon">🖼️</div>
-            <h3>图片批处理</h3>
-            <p>批量压缩、格式转换、调整尺寸、添加水印。电商图片处理必备。</p>
-        </div>
-        <div class="tool-card">
-            <div class="icon">🔄</div>
-            <h3>文本批量替换</h3>
-            <p>批量替换多个文件中的指定文本。支持正则表达式，支持搜索预览。</p>
-        </div>
-        <div class="tool-card">
-            <div class="icon">📥</div>
-            <h3>批量下载器</h3>
-            <p>并发下载多个文件、批量下载网页图片。支持断点续传。</p>
-        </div>
-        <div class="tool-card">
-            <div class="icon">📈</div>
-            <h3>文本分析</h3>
-            <p>字数统计、关键词提取、文本对比、可读性分析。</p>
-        </div>
-    </div>
+<div class="wrap">
+
+<h2 class="sec">鍖呭惈 12 涓伐鍏?/h2>
+<div class="grid">
+  <div class="card"><div class="num">1</div><h3>PDF 澶勭悊鍣?/h3><p>鍚堝苟銆佹媶鍒嗐€佹彁鍙栭〉闈€佸姞姘村嵃銆丳DF 杞浘鐗囥€傚憡鍒墜鍔ㄦ搷浣溿€?/p></div>
+  <div class="card"><div class="num">2</div><h3>缃戦〉鏁版嵁鎶撳彇</h3><p>鎶撳彇琛ㄦ牸銆佹枃绔犮€侀摼鎺ャ€傛敮鎸佷腑鏂囩綉绔欙紝鑷姩澶勭悊缂栫爜銆?/p></div>
+  <div class="card"><div class="num">3</div><h3>鎵归噺鏂囦欢閲嶅懡鍚?/h3><p>鎸夊簭鍙枫€佹棩鏈熴€佽嚜瀹氫箟瑙勫垯鎵归噺閲嶅懡鍚嶃€傛敮鎸佸彉閲忔浛鎹€?/p></div>
+  <div class="card"><div class="num">4</div><h3>鏂囦欢澶硅嚜鍔ㄦ暣鐞?/h3><p>鎸夋枃浠剁被鍨嬫垨淇敼鏃ユ湡鑷姩鍒嗙被銆備笅杞界洰褰曚竴閿竻鐞嗐€?/p></div>
+  <div class="card"><div class="num">5</div><h3>Excel 澶勭悊鍣?/h3><p>鍚堝苟澶氳〃銆佹牸寮忚浆鎹€佹暟鎹瓫閫夈€佸幓閲嶃€佺粺璁″垎鏋愩€?/p></div>
+  <div class="card"><div class="num">6</div><h3>鍥剧墖鎵瑰鐞?/h3><p>鎵归噺鍘嬬缉銆佹牸寮忚浆鎹€佽皟鏁村昂瀵搞€佹坊鍔犳按鍗般€?/p></div>
+  <div class="card"><div class="num">7</div><h3>鏂囨湰鎵归噺鏇挎崲</h3><p>澶氭枃浠舵壒閲忔浛鎹紝鏀寔姝ｅ垯琛ㄨ揪寮忥紝鏀寔鎼滅储棰勮銆?/p></div>
+  <div class="card"><div class="num">8</div><h3>鎵归噺涓嬭浇鍣?/h3><p>骞跺彂涓嬭浇鏂囦欢銆佹壒閲忎笅杞界綉椤靛浘鐗囥€?/p></div>
+  <div class="card"><div class="num">9</div><h3>鏂囨湰鍒嗘瀽</h3><p>瀛楁暟缁熻銆佸叧閿瘝鎻愬彇銆佹枃鏈姣斻€佸彲璇绘€у垎鏋愩€?/p></div>
 </div>
 
-<div class="features">
-    <h2 class="section-title">✅ 为什么选择这个工具包？</h2>
-    <div class="feature-list">
-        <div class="feature-item">
-            <span class="check">✓</span>
-            <div>
-                <h4>零基础可用</h4>
-                <p>复制命令、改改参数就能运行，不需要编程经验</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <span class="check">✓</span>
-            <div>
-                <h4>代码清晰</h4>
-                <p>纯 Python 编写，注释完整，可以自由修改</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <span class="check">✓</span>
-            <div>
-                <h4>跨平台</h4>
-                <p>Windows、macOS、Linux 通用</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <span class="check">✓</span>
-            <div>
-                <h4>详细文档</h4>
-                <p>中文使用说明 + 快速开始指南 + 常见问题解答</p>
-            </div>
-        </div>
-        <div class="tool-card">
-            <span class="check">✓</span>
-            <div>
-                <h4>永久使用</h4>
-                <p>买一次，终身使用，免费更新</p>
-            </div>
-        </div>
-        <div class="feature-item">
-            <span class="check">✓</span>
-            <div>
-                <h4>MIT 开源</h4>
-                <p>可自由使用、修改、分发，无任何限制</p>
-            </div>
-        </div>
-    </div>
+<h2 class="sec">浣跨敤绀轰緥</h2>
+<div class="code"><pre><span class="g"># 鍚堝苟 PDF</span>
+<span class="b">python tools/pdf_processor.py merge</span> --input 鏂囦欢1.pdf 鏂囦欢2.pdf --output 鍚堝苟.pdf
+
+<span class="g"># 鏁寸悊涓嬭浇鏂囦欢澶?/span>
+<span class="b">python tools/file_organizer.py by-type</span> --dir ~/Downloads
+
+<span class="g"># 鎵归噺閲嶅懡鍚嶇収鐗?/span>
+<span class="b">python tools/file_rename.py rename</span> --dir ./photos --pattern "{date}_{num}"
+
+<span class="g"># Excel 鍚堝苟</span>
+<span class="b">python tools/excel_processor.py merge</span> --input 1鏈?xlsx 2鏈?xlsx --output 姹囨€?xlsx
+
+<span class="g"># 缃戦〉鎶撳彇</span>
+<span class="b">python tools/web_scraper.py</span> --url https://example.com --mode article --output 鏂囩珷</pre></div>
+
+<h2 class="sec">涓轰粈涔堥€夋嫨杩欎釜宸ュ叿鍖?/h2>
+<div class="why">
+  <div><span class="ck">&#10003;</span><div><h4>闆跺熀纭€鍙敤</h4><p>澶嶅埗鍛戒护鏀瑰弬鏁板氨琛岋紝涓嶉渶瑕佺紪绋嬬粡楠?/p></div></div>
+  <div><span class="ck">&#10003;</span><div><h4>涓枃鏂囨。</h4><p>姣忎釜宸ュ叿閮芥湁璇︾粏浣跨敤璇存槑鍜岀ず渚?/p></div></div>
+  <div><span class="ck">&#10003;</span><div><h4>璺ㄥ钩鍙?/h4><p>Windows / macOS / Linux 閫氱敤</p></div></div>
+  <div><span class="ck">&#10003;</span><div><h4>浠ｇ爜娓呮櫚</h4><p>绾?Python锛屾敞閲婂畬鏁达紝鍙嚜鐢变慨鏀?/p></div></div>
+  <div><span class="ck">&#10003;</span><div><h4>姘镐箙浣跨敤</h4><p>涔颁竴娆＄粓韬彲鐢紝鍏嶈垂鏇存柊</p></div></div>
+  <div><span class="ck">&#10003;</span><div><h4>鍞悗鏀寔</h4><p>浣跨敤闂闅忔椂鍜ㄨ</p></div></div>
 </div>
 
-<div class="code-demo">
-    <h2 class="section-title" style="color: white;">💻 使用示例</h2>
-    <pre>
-<span class="comment"># 合并多个 PDF</span>
-<span class="command">python tools/pdf_processor.py merge</span> <span class="flag">--input</span> <span class="string">文件1.pdf 文件2.pdf</span> <span class="flag">--output</span> <span class="string">合并.pdf</span>
+<div class="btn-row"><a href="landing.html">19.9 鍏?鑾峰彇瀹屾暣鐗?/a></div>
 
-<span class="comment"># 抓取网页文章</span>
-<span class="command">python tools/web_scraper.py</span> <span class="flag">--url</span> <span class="string">https://example.com</span> <span class="flag">--mode</span> <span class="string">article</span> <span class="flag">--output</span> <span class="string">文章</span>
+<h2 class="sec">甯歌闂</h2>
+<dl class="faq">
+  <dt>闇€瑕佺紪绋嬪熀纭€鍚楋紵</dt>
+  <dd>瀹屽叏涓嶉渶瑕併€傚鍒跺懡浠ゃ€佹敼鏀瑰弬鏁板氨鑳界敤銆?/dd>
+  <dt>鏀寔浠€涔堢郴缁燂紵</dt>
+  <dd>Windows銆乵acOS銆丩inux 閮芥敮鎸侊紝鏈?Python 3.8+ 鍗冲彲銆?/dd>
+  <dt>鎬庝箞鏀惰揣锛?/dt>
+  <dd>鏀粯鍚庡姞寰俊锛屽彂閫?zip 鍘嬬缉鍖?+ 瀹屾暣鏂囨。銆?/dd>
+  <dt>鏈夊敭鍚庡悧锛?/dt>
+  <dd>鏈夛紝浣跨敤闂闅忔椂鍜ㄨ锛屽寘鏁欏寘浼氥€?/dd>
+</dl>
 
-<span class="comment"># 整理下载文件夹</span>
-<span class="command">python tools/file_organizer.py by-type</span> <span class="flag">--dir</span> <span class="string">~/Downloads</span>
-
-<span class="comment"># 批量重命名照片</span>
-<span class="command">python tools/file_rename.py rename</span> <span class="flag">--dir</span> <span class="string">./photos</span> <span class="flag">--pattern</span> <span class="string">"{date}_{num}"</span>
-
-<span class="comment"># Excel 合并</span>
-<span class="command">python tools/excel_processor.py merge</span> <span class="flag">--input</span> <span class="string">1月.xlsx 2月.xlsx</span> <span class="flag">--output</span> <span class="string">汇总.xlsx</span>
-    </pre>
 </div>
 
-<div class="cta" id="buy">
-    <h2>🚀 立即获取工具包</h2>
-    <p style="margin-bottom: 30px; opacity: 0.9;">12 个工具，平均每个不到 3 块钱</p>
-    <a href="#" class="btn">¥29.9 立即购买 →</a>
-</div>
-
-<div class="faq">
-    <h2 class="section-title">❓ 常见问题</h2>
-    <div class="faq-item">
-        <h4>需要编程基础吗？</h4>
-        <p>不需要。每个工具都有详细的使用说明，复制命令改改参数就能运行。</p>
-    </div>
-    <div class="faq-item">
-        <h4>支持什么系统？</h4>
-        <p>Windows、macOS、Linux 都支持。只要有 Python 3.8+ 就行。</p>
-    </div>
-    <div class="faq-item">
-        <h4>怎么安装？</h4>
-        <p>解压后运行 pip install -r requirements.txt 安装依赖，然后就能用了。</p>
-    </div>
-    <div class="faq-item">
-        <h4>可以退款吗？</h4>
-        <p>数字产品，不支持退款。但如果有问题可以联系我解决。</p>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 Python 自动化工具包 | MIT License</p>
-</footer>
+<footer>Python 鑷姩鍖栧伐鍏峰寘 &copy; 2026 &middot; MIT License</footer>
 
 </body>
 </html>
