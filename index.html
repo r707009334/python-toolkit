@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 自动化工具包 — 12 个即用脚本，告别重复劳动</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.5em; margin-bottom: 20px; }
+        .hero p { font-size: 1.2em; opacity: 0.9; max-width: 600px; margin: 0 auto 30px; }
+        .hero .price {
+            font-size: 2em;
+            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+        .hero .btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .hero .btn:hover { transform: scale(1.05); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        .tool-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 25px;
+            transition: box-shadow 0.2s;
+        }
+        .tool-card:hover { box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .tool-card .icon { font-size: 2em; margin-bottom: 10px; }
+        .tool-card h3 { font-size: 1.2em; margin-bottom: 10px; color: #333; }
+        .tool-card p { color: #666; font-size: 0.95em; }
+        .features {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .feature-item .check {
+            color: #667eea;
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+        .feature-item h4 { margin-bottom: 5px; }
+        .feature-item p { color: #666; font-size: 0.9em; }
+        .code-demo {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 40px 20px;
+        }
+        .code-demo pre {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #2d2d2d;
+            padding: 25px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: "Fira Code", "Consolas", monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        .code-demo .comment { color: #6a9955; }
+        .code-demo .command { color: #dcdcaa; }
+        .code-demo .flag { color: #9cdcfe; }
+        .code-demo .string { color: #ce9178; }
+        .testimonial {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .testimonial blockquote {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2em;
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .cta h2 { font-size: 2em; margin-bottom: 20px; }
+        .cta .btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .faq { padding: 60px 20px; }
+        .faq-item { max-width: 700px; margin: 0 auto 20px; }
+        .faq-item h4 { margin-bottom: 5px; color: #333; }
+        .faq-item p { color: #666; }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8em; }
+            .hero .price { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>🛠️ Python 自动化工具包</h1>
+    <p>12 个即用型 Python 脚本，覆盖 PDF 处理、网页抓取、文件整理、Excel 处理、图片批处理等常见场景</p>
+    <div class="price">¥29.9</div>
+    <br>
+    <a href="#buy" class="btn">立即获取 →</a>
+</div>
+
+<div class="container">
+    <h2 class="section-title">📦 包含 12 个工具</h2>
+    <div class="tools-grid">
+        <div class="tool-card">
+            <div class="icon">📄</div>
+            <h3>PDF 处理器</h3>
+            <p>合并多个 PDF、按页拆分、提取指定页面、批量加水印、PDF 转图片。告别手动操作。</p>
+        </div>
+        <div class="tool-card">
+            <div class="icon">🌐</div>
+            <h3>网页数据抓取</h3>
+            <p>一键抓取网页表格、文章内容、所有链接。支持中文网站，自动处理编码。</p>
+        </div>
+        <div class="tool-card">
+            <div class="icon">📝</div>
+            <h3>批量文件重命名</h3>
+            <p>按序号、日期、自定义规则批量重命名。支持前缀、后缀、变量替换。</p>
+        </div>
+        <div class="tool-card">
+            <div class="icon">📁</div>
+            <h3>文件夹自动整理</h3>
+            <p>按文件类型或修改日期自动分类。下载文件夹一键整理干净。</p>
+        </div>
+        <div class="tool-card">
+            <div class="icon">📊</div>
+            <h3>Excel 处理器</h3>
+            <p>合并多个 Excel、格式转换、数据筛选、去重、统计分析。</p>
+        </div>
+        <div class="tool-card">
+            <div class="icon">🖼️</div>
+            <h3>图片批处理</h3>
+            <p>批量压缩、格式转换、调整尺寸、添加水印。电商图片处理必备。</p>
+        </div>
+        <div class="tool-card">
+            <div class="icon">🔄</div>
+            <h3>文本批量替换</h3>
+            <p>批量替换多个文件中的指定文本。支持正则表达式，支持搜索预览。</p>
+        </div>
+        <div class="tool-card">
+            <div class="icon">📥</div>
+            <h3>批量下载器</h3>
+            <p>并发下载多个文件、批量下载网页图片。支持断点续传。</p>
+        </div>
+        <div class="tool-card">
+            <div class="icon">📈</div>
+            <h3>文本分析</h3>
+            <p>字数统计、关键词提取、文本对比、可读性分析。</p>
+        </div>
+    </div>
+</div>
+
+<div class="features">
+    <h2 class="section-title">✅ 为什么选择这个工具包？</h2>
+    <div class="feature-list">
+        <div class="feature-item">
+            <span class="check">✓</span>
+            <div>
+                <h4>零基础可用</h4>
+                <p>复制命令、改改参数就能运行，不需要编程经验</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <span class="check">✓</span>
+            <div>
+                <h4>代码清晰</h4>
+                <p>纯 Python 编写，注释完整，可以自由修改</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <span class="check">✓</span>
+            <div>
+                <h4>跨平台</h4>
+                <p>Windows、macOS、Linux 通用</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <span class="check">✓</span>
+            <div>
+                <h4>详细文档</h4>
+                <p>中文使用说明 + 快速开始指南 + 常见问题解答</p>
+            </div>
+        </div>
+        <div class="tool-card">
+            <span class="check">✓</span>
+            <div>
+                <h4>永久使用</h4>
+                <p>买一次，终身使用，免费更新</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <span class="check">✓</span>
+            <div>
+                <h4>MIT 开源</h4>
+                <p>可自由使用、修改、分发，无任何限制</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="code-demo">
+    <h2 class="section-title" style="color: white;">💻 使用示例</h2>
+    <pre>
+<span class="comment"># 合并多个 PDF</span>
+<span class="command">python tools/pdf_processor.py merge</span> <span class="flag">--input</span> <span class="string">文件1.pdf 文件2.pdf</span> <span class="flag">--output</span> <span class="string">合并.pdf</span>
+
+<span class="comment"># 抓取网页文章</span>
+<span class="command">python tools/web_scraper.py</span> <span class="flag">--url</span> <span class="string">https://example.com</span> <span class="flag">--mode</span> <span class="string">article</span> <span class="flag">--output</span> <span class="string">文章</span>
+
+<span class="comment"># 整理下载文件夹</span>
+<span class="command">python tools/file_organizer.py by-type</span> <span class="flag">--dir</span> <span class="string">~/Downloads</span>
+
+<span class="comment"># 批量重命名照片</span>
+<span class="command">python tools/file_rename.py rename</span> <span class="flag">--dir</span> <span class="string">./photos</span> <span class="flag">--pattern</span> <span class="string">"{date}_{num}"</span>
+
+<span class="comment"># Excel 合并</span>
+<span class="command">python tools/excel_processor.py merge</span> <span class="flag">--input</span> <span class="string">1月.xlsx 2月.xlsx</span> <span class="flag">--output</span> <span class="string">汇总.xlsx</span>
+    </pre>
+</div>
+
+<div class="cta" id="buy">
+    <h2>🚀 立即获取工具包</h2>
+    <p style="margin-bottom: 30px; opacity: 0.9;">12 个工具，平均每个不到 3 块钱</p>
+    <a href="#" class="btn">¥29.9 立即购买 →</a>
+</div>
+
+<div class="faq">
+    <h2 class="section-title">❓ 常见问题</h2>
+    <div class="faq-item">
+        <h4>需要编程基础吗？</h4>
+        <p>不需要。每个工具都有详细的使用说明，复制命令改改参数就能运行。</p>
+    </div>
+    <div class="faq-item">
+        <h4>支持什么系统？</h4>
+        <p>Windows、macOS、Linux 都支持。只要有 Python 3.8+ 就行。</p>
+    </div>
+    <div class="faq-item">
+        <h4>怎么安装？</h4>
+        <p>解压后运行 pip install -r requirements.txt 安装依赖，然后就能用了。</p>
+    </div>
+    <div class="faq-item">
+        <h4>可以退款吗？</h4>
+        <p>数字产品，不支持退款。但如果有问题可以联系我解决。</p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Python 自动化工具包 | MIT License</p>
+</footer>
+
+</body>
+</html>
