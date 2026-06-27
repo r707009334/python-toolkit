@@ -3,165 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Python 鑷姩鍖栧伐鍏峰寘 鈥?12 涓剼鏈憡鍒噸澶嶅姵鍔?/title>
+<title>璐拱 Python 鑷姩鍖栧伐鍏峰寘</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f7fa;color:#333;line-height:1.7}
-.hero{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);color:#fff;text-align:center;padding:70px 20px 50px}
-.hero h1{font-size:2.2em;margin-bottom:15px;text-shadow:0 2px 10px rgba(0,0,0,.15)}
-.hero .sub{font-size:1.1em;opacity:.92;max-width:520px;margin:0 auto 25px}
-.hero .badge{display:inline-block;background:rgba(255,255,255,.22);border-radius:30px;padding:8px 28px;font-size:1.15em;font-weight:700;backdrop-filter:blur(4px);margin-bottom:18px}
-.hero .cta-btn{display:inline-block;background:#fff;color:#4facfe;padding:14px 38px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1.1em;box-shadow:0 4px 15px rgba(0,0,0,.15);transition:.2s}
-.hero .cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-.sec-title{text-align:center;font-size:1.8em;margin:50px 0 35px;color:#222}
-/* tools grid */
-.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-bottom:50px}
-.tool{background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:.2s}
-.tool:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.1)}
-.tool .ico{font-size:2em;margin-bottom:8px}
-.tool h3{font-size:1.05em;margin-bottom:6px}
-.tool p{font-size:.88em;color:#666}
-/* how it works */
-.steps{background:#fff;padding:50px 20px;border-radius:16px;margin-bottom:50px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
-.steps h2{text-align:center;margin-bottom:30px}
-.step-row{display:flex;align-items:center;gap:20px;max-width:700px;margin:0 auto 22px}
-.step-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#4facfe,#00f2fe);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3em;font-weight:700;flex-shrink:0}
-.step-text h4{margin-bottom:2px}
-.step-text p{font-size:.9em;color:#666}
-/* buy section */
-.buy{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);border-radius:16px;padding:50px 20px;text-align:center;color:#fff;margin-bottom:50px}
-.buy h2{font-size:1.8em;margin-bottom:10px}
-.buy .price-tag{font-size:2.6em;font-weight:800;margin:15px 0}
-.buy .price-tag span{font-size:.45em;vertical-align:middle;opacity:.8}
-.buy .note{opacity:.85;margin-bottom:25px;font-size:.95em}
-.qr-box{background:#fff;border-radius:14px;display:inline-block;padding:18px;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.qr-box img{width:200px;height:200px;display:block;border-radius:8px;background:#eee}
-.qr-box .hint{color:#999;font-size:.82em;margin-top:10px}
-/* features */
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-bottom:50px}
-.feat{display:flex;gap:14px;align-items:flex-start}
-.feat .ck{color:#4facfe;font-size:1.4em;flex-shrink:0;line-height:1.5}
-.feat h4{margin-bottom:3px}
-.feat p{font-size:.88em;color:#666}
-/* code demo */
-.code-block{background:#1e1e2e;border-radius:14px;padding:30px 24px;margin-bottom:50px;overflow-x:auto}
-.code-block pre{color:#cdd6f4;font-family:"Fira Code","Consolas",monospace;font-size:.88em;line-height:1.6;white-space:pre}
-.code-block .c{color:#6c7086}
-.code-block .k{color:#89b4fa}
-.code-block .s{color:#a6e3a1}
-/* testimonial */
-.testi{max-width:680px;margin:0 auto 50px;text-align:center}
-.testi blockquote{font-style:italic;color:#555;border-left:4px solid #4facfe;padding:12px 0 12px 20px;text-align:left;font-size:1.05em;margin-bottom:12px}
-.testi .who{font-size:.88em;color:#999}
-/* faq */
-.faq{margin-bottom:50px}
-.faq-item{max-width:700px;margin:0 auto 18px}
-.faq-item h4{margin-bottom:4px;color:#333}
-.faq-item p{color:#666;font-size:.92em}
-/* footer */
-footer{text-align:center;padding:30px;color:#aaa;font-size:.85em}
+body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#2d3436;background:#f0f2f5}
+.top{background:linear-gradient(135deg,#0984e3,#6c5ce7);color:#fff;text-align:center;padding:60px 20px 50px}
+.top h1{font-size:2em;margin-bottom:12px;font-weight:700}
+.top p{opacity:.9;max-width:480px;margin:0 auto;line-height:1.7}
+.price-box{background:#fff;border-radius:16px;max-width:480px;margin:-40px auto 0;padding:40px 30px;box-shadow:0 8px 40px rgba(0,0,0,.1);text-align:center;position:relative;z-index:1}
+.price-box .old{color:#b2bec3;text-decoration:line-through;font-size:1em}
+.price-box .now{font-size:3em;font-weight:800;color:#e17055;margin:8px 0}
+.price-box .now span{font-size:.35em;color:#636e72;font-weight:400}
+.price-box .desc{color:#636e72;font-size:.9em;margin-bottom:24px}
+.qr{display:inline-block;padding:14px;background:#fff;border:2px solid #dfe6e9;border-radius:12px;margin-bottom:16px}
+.qr img{width:200px;height:200px;display:block;border-radius:8px}
+.qr .tip{color:#636e72;font-size:.82em;margin-top:10px}
+.how{max-width:600px;margin:40px auto;padding:0 20px}
+.how h2{text-align:center;font-size:1.4em;margin-bottom:24px}
+.step{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px}
+.step .n{width:36px;height:36px;border-radius:50%;background:#0984e3;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+.step h4{margin-bottom:3px;font-size:.95em}
+.step p{font-size:.85em;color:#636e72}
+.list{max-width:600px;margin:40px auto;padding:0 20px}
+.list h2{text-align:center;font-size:1.4em;margin-bottom:20px}
+.list ul{list-style:none;padding:0}
+.list li{padding:10px 0;border-bottom:1px solid #eee;font-size:.92em;display:flex;gap:10px;align-items:center}
+.list li .dot{color:#00b894;font-weight:700}
+.faq{max-width:600px;margin:40px auto;padding:0 20px}
+.faq h2{text-align:center;font-size:1.4em;margin-bottom:20px}
+.faq dt{font-weight:700;margin-bottom:4px;font-size:.92em}
+.faq dd{color:#636e72;font-size:.88em;margin-bottom:16px;line-height:1.6}
+footer{text-align:center;padding:30px;color:#b2bec3;font-size:.82em}
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <h1>馃洜锔?Python 鑷姩鍖栧伐鍏峰寘</h1>
-  <p class="sub">12 涓嵆鐢ㄨ剼鏈紝瑕嗙洊 PDF 路 Excel 路 缃戦〉鎶撳彇 路 鍥剧墖 路 鏂囦欢鏁寸悊锛屽憡鍒墜鍔ㄩ噸澶嶅姵鍔?/p>
-  <div class="badge">宸叉湁 200+ 浜哄湪鐢?/div><br>
-  <a href="#buy" class="cta-btn">楼19.9 绔嬪嵆鑾峰彇 鈫?/a>
+<div class="top">
+  <h1>Python 鑷姩鍖栧伐鍏峰寘</h1>
+  <p>12 涓剼鏈В鍐?PDF銆丒xcel銆佺埇铏€佹枃浠舵暣鐞嗙瓑鏃ュ父閲嶅鍔冲姩</p>
 </div>
 
-<div class="wrap">
-
-  <!-- 12 tools -->
-  <h2 class="sec-title">馃摝 鍖呭惈 12 涓伐鍏?/h2>
-  <div class="tools">
-    <div class="tool"><div class="ico">馃搫</div><h3>PDF 澶勭悊鍣?/h3><p>鍚堝苟銆佹媶鍒嗐€佹彁鍙栭〉闈€佸姞姘村嵃銆丳DF 杞浘鐗?/p></div>
-    <div class="tool"><div class="ico">馃寪</div><h3>缃戦〉鏁版嵁鎶撳彇</h3><p>鎶撳彇琛ㄦ牸銆佹枃绔犮€侀摼鎺ワ紝鏀寔涓枃缃戠珯</p></div>
-    <div class="tool"><div class="ico">馃摑</div><h3>鎵归噺鏂囦欢閲嶅懡鍚?/h3><p>鎸夊簭鍙枫€佹棩鏈熴€佽嚜瀹氫箟瑙勫垯鎵归噺閲嶅懡鍚?/p></div>
-    <div class="tool"><div class="ico">馃搧</div><h3>鏂囦欢澶硅嚜鍔ㄦ暣鐞?/h3><p>鎸夋枃浠剁被鍨嬫垨鏃ユ湡鑷姩鍒嗙被锛屼笅杞界洰褰曚竴閿竻鐞?/p></div>
-    <div class="tool"><div class="ico">馃搳</div><h3>Excel 澶勭悊鍣?/h3><p>鍚堝苟澶氳〃銆佺瓫閫夋暟鎹€佹牸寮忚浆鎹€佸幓閲嶅垎鏋?/p></div>
-    <div class="tool"><div class="ico">馃柤锔?/div><h3>鍥剧墖鎵瑰鐞?/h3><p>鎵归噺鍘嬬缉銆佹牸寮忚浆鎹€佽皟鏁村昂瀵搞€佹坊鍔犳按鍗?/p></div>
-    <div class="tool"><div class="ico">馃攧</div><h3>鏂囨湰鎵归噺鏇挎崲</h3><p>澶氭枃浠舵壒閲忔浛鎹紝鏀寔姝ｅ垯琛ㄨ揪寮?/p></div>
-    <div class="tool"><div class="ico">馃摜</div><h3>鎵归噺涓嬭浇鍣?/h3><p>骞跺彂涓嬭浇鏂囦欢銆佹壒閲忎笅杞界綉椤靛浘鐗?/p></div>
-    <div class="tool"><div class="ico">馃搱</div><h3>鏂囨湰鍒嗘瀽</h3><p>瀛楁暟缁熻銆佸叧閿瘝鎻愬彇銆佹枃鏈姣?/p></div>
+<div class="price-box">
+  <div class="old">鍘熶环 49.9 鍏?/div>
+  <div class="now">19.9 <span>鍏?/ 姘镐箙</span></div>
+  <div class="desc">12 涓伐鍏?+ 涓枃鏂囨。 + 姘镐箙鏇存柊 + 鍞悗鏀寔</div>
+  <div class="qr">
+    <img src="images/wechat-pay.jpg" alt="寰俊鏀粯">
+    <div class="tip">寰俊鎵竴鎵敮浠樺悗锛屾埅鍥惧彂缁欏崠瀹?/div>
   </div>
-
-  <!-- how it works -->
-  <div class="steps">
-    <h2>馃殌 3 鍒嗛挓涓婃墜</h2>
-    <div class="step-row"><div class="step-num">1</div><div class="step-text"><h4>瀹夎 Python</h4><p>浠?python.org 涓嬭浇锛屽畨瑁呮椂鍕鹃€?Add to PATH</p></div></div>
-    <div class="step-row"><div class="step-num">2</div><div class="step-text"><h4>瀹夎渚濊禆</h4><p>杩愯 <code>pip install -r requirements.txt</code>锛屼竴琛屽懡浠ゆ悶瀹?/p></div></div>
-    <div class="step-row"><div class="step-num">3</div><div class="step-text"><h4>寮€濮嬩娇鐢?/h4><p>澶嶅埗鍛戒护銆佹敼鏀瑰弬鏁板氨鑳借繍琛岋紝姣忎釜宸ュ叿閮芥湁涓枃璇存槑</p></div></div>
-  </div>
-
-  <!-- code demo -->
-  <h2 class="sec-title">馃捇 浣跨敤绀轰緥</h2>
-  <div class="code-block"><pre><span class="c"># 鍚堝苟 PDF</span>
-<span class="k">python tools/pdf_processor.py merge</span> <span class="s">--input 鏂囦欢1.pdf 鏂囦欢2.pdf --output 鍚堝苟.pdf</span>
-
-<span class="c"># 鏁寸悊涓嬭浇鏂囦欢澶?/span>
-<span class="k">python tools/file_organizer.py by-type</span> <span class="s">--dir ~/Downloads</span>
-
-<span class="c"># 鎵归噺閲嶅懡鍚嶇収鐗?/span>
-<span class="k">python tools/file_rename.py rename</span> <span class="s">--dir ./photos --pattern "{date}_{num}"</span>
-
-<span class="c"># Excel 鍚堝苟</span>
-<span class="k">python tools/excel_processor.py merge</span> <span class="s">--input 1鏈?xlsx 2鏈?xlsx --output 姹囨€?xlsx</span>
-
-<span class="c"># 缃戦〉鎶撳彇</span>
-<span class="k">python tools/web_scraper.py</span> <span class="s">--url https://example.com --mode article --output 鏂囩珷</span>
-
-<span class="c"># 鍥剧墖鍔犳按鍗?/span>
-<span class="k">python tools/image_processor.py watermark</span> <span class="s">--dir ./photos --output ./out --text "鐗堟潈"</span></pre></div>
-
-  <!-- features -->
-  <h2 class="sec-title">鉁?涓轰粈涔堥€夋垜浠?/h2>
-  <div class="feat-grid">
-    <div class="feat"><span class="ck">鉁?/span><div><h4>闆跺熀纭€鍙敤</h4><p>澶嶅埗鍛戒护鏀瑰弬鏁板氨琛岋紝涓嶉渶瑕佺紪绋嬬粡楠?/p></div></div>
-    <div class="feat"><span class="ck">鉁?/span><div><h4>涓枃鏂囨。</h4><p>姣忎釜宸ュ叿閮芥湁璇︾粏浣跨敤璇存槑鍜岀ず渚?/p></div></div>
-    <div class="feat"><span class="ck">鉁?/span><div><h4>璺ㄥ钩鍙?/h4><p>Windows / macOS / Linux 閫氱敤</p></div></div>
-    <div class="feat"><span class="ck">鉁?/span><div><h4>浠ｇ爜娓呮櫚</h4><p>绾?Python锛屾敞閲婂畬鏁达紝鍙嚜鐢变慨鏀瑰畾鍒?/p></div></div>
-    <div class="feat"><span class="ck">鉁?/span><div><h4>姘镐箙浣跨敤</h4><p>涔颁竴娆＄粓韬彲鐢紝鍏嶈垂鏇存柊</p></div></div>
-    <div class="feat"><span class="ck">鉁?/span><div><h4>鍞悗鏀寔</h4><p>浣跨敤闂闅忔椂鍜ㄨ锛屽寘鏁欏寘浼?/p></div></div>
-  </div>
-
-  <!-- testimonials -->
-  <h2 class="sec-title">馃挰 鐢ㄦ埛璇勪环</h2>
-  <div class="testi">
-    <blockquote>"涔嬪墠鍚堝苟 PDF 閮借寮€浼氬憳锛岀幇鍦ㄤ竴鏉″懡浠ゆ悶瀹氾紝鐪佷簡涓嶅皯閽便€?</blockquote>
-    <div class="who">鈥?寮犲悓瀛︼紝澶у洓瀛︾敓</div>
-    <blockquote>"涓嬭浇鏂囦欢澶圭粓浜庤兘鑷姩鏁寸悊浜嗭紝涓嶇敤涓€涓釜鎵嬪姩鎷栦簡銆?</blockquote>
-    <div class="who">鈥?鏉庡伐锛岃繍缁村伐绋嬪笀</div>
-    <blockquote>"Excel 鍚堝苟鍔熻兘澶ソ鐢ㄤ簡锛屼互鍓嶆墜鍔ㄥ鍒剁矘璐磋鍗婂皬鏃讹紝鐜板湪 3 绉掋€?</blockquote>
-    <div class="who">鈥?鐜嬪锛岃储鍔′富绠?/div>
-  </div>
-
-  <!-- buy -->
-  <div class="buy" id="buy">
-    <h2>馃巵 闄愭椂浼樻儬</h2>
-    <div class="price-tag">楼19.9<span> 鍘熶环 楼49.9</span></div>
-    <p class="note">12 涓伐鍏凤紝骞冲潎涓嶅埌 2 鍧楅挶 路 涔颁竴娆℃案涔呬娇鐢?/p>
-    <div class="qr-box">
-      <img src="images/wechat-pay.jpg" alt="寰俊鏀粯">
-      <div class="hint">鎵爜鏀粯鍚庢埅鍥惧彂缁欏崠瀹?/div>
-    </div>
-  </div>
-
-  <!-- faq -->
-  <h2 class="sec-title">鉂?甯歌闂</h2>
-  <div class="faq">
-    <div class="faq-item"><h4>闇€瑕佺紪绋嬪熀纭€鍚楋紵</h4><p>瀹屽叏涓嶉渶瑕併€傛瘡涓伐鍏烽兘鏈夎缁嗕腑鏂囪鏄庯紝澶嶅埗鍛戒护鏀瑰弬鏁板氨鑳界敤銆?/p></div>
-    <div class="faq-item"><h4>鏀寔浠€涔堢郴缁燂紵</h4><p>Windows銆乵acOS銆丩inux 閮芥敮鎸併€傛湁 Python 3.8+ 灏辫銆?/p></div>
-    <div class="faq-item"><h4>鎬庝箞鏀惰揣锛?/h4><p>鏀粯鍚庡姞鍗栧寰俊锛屽彂閫?zip 鍘嬬缉鍖?+ 瀹屾暣鏂囨。銆?/p></div>
-    <div class="faq-item"><h4>鍙互閫€娆惧悧锛?/h4><p>鏁板瓧鍟嗗搧涓嶆敮鎸侀€€娆撅紝浣嗕娇鐢ㄩ棶棰橀殢鏃舵壘鎴戯紝鍖呮暀鍖呬細銆?/p></div>
-    <div class="faq-item"><h4>鏈夊敭鍚庡悧锛?/h4><p>鏈夛紒浣跨敤杩囩▼涓亣鍒伴棶棰橀殢鏃堕棶鎴戯紝鍏嶈垂鎻愪緵鎶€鏈敮鎸併€?/p></div>
-  </div>
-
 </div>
 
-<footer>漏 2026 Python 鑷姩鍖栧伐鍏峰寘 路 浠樿垂鍚庡姞寰俊鑾峰彇</footer>
+<div class="how">
+  <h2>璐拱娴佺▼</h2>
+  <div class="step"><div class="n">1</div><div><h4>鎵爜鏀粯</h4><p>鐢ㄥ井淇℃壂鎻忎笂鏂逛簩缁寸爜锛屾敮浠?19.9 鍏?/p></div></div>
+  <div class="step"><div class="n">2</div><div><h4>鎴浘鍙戠粰鍗栧</h4><p>鏀粯瀹屾垚鍚庢埅鍥惧彂缁欏崠瀹跺井淇?/p></div></div>
+  <div class="step"><div class="n">3</div><div><h4>鏀惰揣</h4><p>鍗栧鍙戦€?zip 鍘嬬缉鍖?+ 瀹屾暣浣跨敤鏂囨。</p></div></div>
+</div>
+
+<div class="list">
+  <h2>浣犲皢鑾峰緱</h2>
+  <ul>
+    <li><span class="dot">&#10003;</span>PDF 澶勭悊鍣紙鍚堝苟/鎷嗗垎/鎻愬彇/姘村嵃/杞浘鐗囷級</li>
+    <li><span class="dot">&#10003;</span>缃戦〉鏁版嵁鎶撳彇锛堣〃鏍?鏂囩珷/閾炬帴锛?/li>
+    <li><span class="dot">&#10003;</span>鎵归噺鏂囦欢閲嶅懡鍚?/li>
+    <li><span class="dot">&#10003;</span>鏂囦欢澶硅嚜鍔ㄦ暣鐞嗭紙鎸夌被鍨?鏃ユ湡鍒嗙被锛?/li>
+    <li><span class="dot">&#10003;</span>Excel 澶勭悊鍣紙鍚堝苟/绛涢€?杞崲/鍒嗘瀽锛?/li>
+    <li><span class="dot">&#10003;</span>鍥剧墖鎵瑰鐞嗭紙鍘嬬缉/杞崲/姘村嵃/缂╂斁锛?/li>
+    <li><span class="dot">&#10003;</span>鏂囨湰鎵归噺鏇挎崲锛堟敮鎸佹鍒欙級</li>
+    <li><span class="dot">&#10003;</span>鎵归噺涓嬭浇鍣?/li>
+    <li><span class="dot">&#10003;</span>鏂囨湰鍒嗘瀽锛堝瓧鏁?鍏抽敭璇?瀵规瘮锛?/li>
+    <li><span class="dot">&#10003;</span>涓枃浣跨敤璇存槑 + 蹇€熷紑濮嬫寚鍗?/li>
+    <li><span class="dot">&#10003;</span>姘镐箙鍏嶈垂鏇存柊</li>
+    <li><span class="dot">&#10003;</span>鍞悗鎶€鏈敮鎸?/li>
+  </ul>
+</div>
+
+<div class="faq">
+  <h2>甯歌闂</h2>
+  <dl>
+    <dt>闇€瑕佺紪绋嬪熀纭€鍚楋紵</dt>
+    <dd>涓嶉渶瑕併€傛瘡涓伐鍏烽兘鏈夎缁嗕腑鏂囪鏄庯紝澶嶅埗鍛戒护鏀瑰弬鏁板氨鑳界敤銆?/dd>
+    <dt>鏀寔浠€涔堢郴缁燂紵</dt>
+    <dd>Windows銆乵acOS銆丩inux 閮芥敮鎸併€傞渶瑕?Python 3.8+锛屽畨瑁呮暀绋?included銆?/dd>
+    <dt>鎬庝箞鏀惰揣锛?/dt>
+    <dd>鏀粯鍚庡姞鍗栧寰俊锛屽彂閫?zip 鍘嬬缉鍖呫€?/dd>
+    <dt>鍙互閫€娆惧悧锛?/dt>
+    <dd>鏁板瓧鍟嗗搧涓嶆敮鎸侀€€娆撅紝浣嗕娇鐢ㄩ棶棰樺寘鏁欏寘浼氥€?/dd>
+  </dl>
+</div>
+
+<footer>Python 鑷姩鍖栧伐鍏峰寘 &copy; 2026</footer>
 
 </body>
 </html>
