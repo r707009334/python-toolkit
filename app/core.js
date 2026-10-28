@@ -190,8 +190,12 @@ export async function syncKline(code) {
   }
   const lastDay = cur.d[cur.d.length - 1];
 
-  let step = await txKline(cur.s, cfg.refreshKline, '').catch(() => null);
-  let hstep = await txKline(cur.s, cfg.refreshKline, 'qfq').catch(() => null);
+  // 隔太久没打开（>90 天）时只补 60 根会留空洞，直接拉全量
+  const gap = (Date.now() - new Date(lastDay + 'T00:00:00').getTime()) / 864e5;
+  const stepN = gap > 90 ? cfg.fullKline : cfg.refreshKline;
+
+  let step = await txKline(cur.s, stepN, '').catch(() => null);
+  let hstep = await txKline(cur.s, stepN, 'qfq').catch(() => null);
   let newDays = 0, src = 'seed';
 
   if (step && step.d.length) {

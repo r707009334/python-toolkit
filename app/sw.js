@@ -6,7 +6,7 @@
  *
  * 改前端代码后请把 V 加一，否则手机上会一直用旧缓存。
  */
-const V = 'hub-v4';
+const V = 'hub-v5';
 const SHELL = [
   './', './index.html', './app.js', './core.js', './registry.js',
   './st_grid.js', './st_rsi.js', './st_etf300.js', './st_div.js',
